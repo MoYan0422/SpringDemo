@@ -15,7 +15,12 @@ import org.springframework.web.bind.support.SessionStatus;
 @SessionAttributes(names = {"userName"})
 public class HelloController2 {
 	
-	@RequestMapping(path = "/hello2.controller",method = RequestMethod.GET)
+	@RequestMapping(path = {"/helloMain.controller","/hello2"},method = RequestMethod.GET)
+	public String processMainAction() {
+		return "form";
+	}
+	
+	@RequestMapping(path = {"/hello2.controller"},method = RequestMethod.GET)
 	public String processAction(@RequestParam("userName") String userName, Model m,SessionStatus sessionStatus) {
 		Map<String, String> errors = new HashMap<String, String>();
 		m.addAttribute("errors", errors);
@@ -24,12 +29,12 @@ public class HelloController2 {
 			errors.put("name", "name is required");
 		}
 		if (errors!=null && !errors.isEmpty()) {
-			return "/form.jsp";
+			return "form";
 		}
 		
 		m.addAttribute("userName", userName);
 		sessionStatus.setComplete();
-		return "/success.jsp";
+		return "success";
 		
 		
 	}
@@ -42,12 +47,12 @@ public class HelloController2 {
 			errors.put("name", "name is required");
 		}
 		if (errors!=null && !errors.isEmpty()) {
-			return "/form.jsp";
+			return "form";
 		}
 		
 		m.addAttribute("userName", userName);
 		sessionStatus.setComplete();
-		return "/success.jsp";
+		return "success";
 		
 		
 	}
