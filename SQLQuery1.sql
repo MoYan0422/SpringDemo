@@ -21,3 +21,15 @@ insert into Account (username ,userpwd) values('rabbit','123test')
 
 
 select * from Account
+
+
+use LeonPower;
+
+create table Picture(
+id int not null primary key identity(1,1),
+fliename nvarchar(50) not null,
+picture varbinary(max)not null
+)
+
+
+select * from Picture

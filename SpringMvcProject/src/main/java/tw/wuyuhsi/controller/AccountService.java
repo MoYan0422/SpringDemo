@@ -12,6 +12,7 @@ import tw.wuyuhsi.model.AccountDao;
 @Service
 @Transactional
 public class AccountService {
+	
 	@Autowired
 	private AccountDao accountDao;
 

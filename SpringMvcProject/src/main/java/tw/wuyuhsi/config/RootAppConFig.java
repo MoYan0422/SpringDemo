@@ -17,7 +17,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
+//beans.config.xml
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
@@ -37,12 +37,14 @@ public class RootAppConFig {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setPackagesToScan("tw.wuyuhsi");
+		
 		sessionFactory.setHibernateProperties(addtionalProperties());
 		return sessionFactory;
 	}
 
 	private Properties addtionalProperties() {
 		Properties properties = new Properties();
+		
 		properties.put("hibernate.dialect", org.hibernate.dialect.SQLServerDialect.class);
 		properties.put("hibernate.show_sql", Boolean.TRUE);
 		properties.put("hibernate.format_sql", Boolean.TRUE);
