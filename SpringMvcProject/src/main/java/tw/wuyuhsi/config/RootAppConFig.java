@@ -48,6 +48,7 @@ public class RootAppConFig {
 		properties.put("hibernate.dialect", org.hibernate.dialect.SQLServerDialect.class);
 		properties.put("hibernate.show_sql", Boolean.TRUE);
 		properties.put("hibernate.format_sql", Boolean.TRUE);
+		properties.put("hibernate.allow_update_outside_transaction", Boolean.TRUE);		
 		return properties;
 	}
 	@Bean @Autowired

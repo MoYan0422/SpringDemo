@@ -3,6 +3,7 @@ package tw.wuyuhsi.config;
 import javax.servlet.Filter;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 //相當web.xml
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -23,7 +24,8 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 //		characterEncodingFilter.setEncoding("UTF-8");
 //		characterEncodingFilter.setForceEncoding(true);
 		CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter("UTF-8",true);
-		return new Filter[] {characterEncodingFilter};
+		HiddenHttpMethodFilter hiddenHttpMethodFilter = new HiddenHttpMethodFilter();
+		return new Filter[] {characterEncodingFilter,hiddenHttpMethodFilter};
 //		return null;
 	}
 

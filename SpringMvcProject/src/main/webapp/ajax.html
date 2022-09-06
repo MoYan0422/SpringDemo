@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        xh.open("get", "http://localhost:8080/SpringMvcProject/profiles2/1002", false)
+        xh.send(null)
+        console.log(xh.status)
+        if (xh.status === 200) {
+            console.log(xh.responseText)
+        }
+
+    </script>
+</body>
+
+</html>
