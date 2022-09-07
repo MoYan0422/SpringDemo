@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        window.onload = function () {
+            async function play() {
+                var promise = new Promise(function (resolve, reject) {
+                    setTimeout(function () {
+                        resolve('have a nice day!!')
+                    }, 3000)
+
+                });
+                document.getElementById('result').innerHTML = await promise;
+            }
+            play();
+        }
+    </script>
+</body>
+
+</html>

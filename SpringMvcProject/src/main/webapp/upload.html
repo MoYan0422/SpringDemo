@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <h3>Upload</h3>
+    <form action="" id="form1">
+        <p>
+            Select File to Upload:<br>
+            <input type="file" name="myFile">
+        </p>
+        <button value="upload" onclick="upload()">Upload</button>
+    </form>
+    <script>
+        function upload() {
+            // alert('ok')
+            var form = document.getElementById('form1');
+
+            var formDate = new FormData(form);
+
+            fetch(
+                'upload.controller',
+                {
+                    method: 'POST',
+                    body: formDate
+                }
+            ).then(function (response) {
+                var status = response.status;
+                if (status != 200) {
+                    console.log("status1:" + status);
+                    return
+                }
+                console.log("status1:" + status);
+
+            })
+        }
+
+    </script>
+
+</body>
+
+</html>

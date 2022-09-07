@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <h3>Information</h3>
+    <form id="form1">
+        <p>
+
+            Name <input type="text" name="userName" placeholder="please input your name"><br />
+            Detail: <br>
+            <hr>
+            Info1: <input type="text" name="result1" id=""><br>
+            Info1: <input type="text" name="result1" id=""><br>
+        </p>
+        <button id="send" value="send">Send</button>
+    </form>
+    <script>
+        window.onload = function () {
+            var form1 = document.getElementById("form1");
+            var send1 = document.getElementById('send');
+            send1.addEventListener('click', function (e) {
+                e.preventDefault();
+                var formData = new FormData(form1);
+                var userName = formData.get('userName');
+                console.log("userName: " + userName);
+
+                var resultArray = formData.getAll("result1");
+                console.log("resultArray" + resultArray);
+
+                var xh = new XMLHttpRequest;
+                xh.open('POST', 'profiles.controller', true);
+                xh.send(formData);
+                xh.onload = function () {
+                    console.log('status: ' + xh.status);
+                    console.log('responseText: ' + xh.responseText);
+                }
+
+            })
+        }
+    </script>
+
+</body>
+
+</html>

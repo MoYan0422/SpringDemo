@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        window.onload = function () {
+            var promise = new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve('have a nice trip');
+                }, 3000);
+            });
+            promise.then(
+                function (mag) {
+                    document.getElementById("result").innerHTML = mag
+                }
+
+            );
+        }
+
+
+    </script>
+
+</body>
+
+</html>

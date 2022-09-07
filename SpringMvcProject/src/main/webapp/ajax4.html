@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax04</title>
+</head>
+
+<body>
+    ajax04
+    <br>
+    <div id="result1"></div>
+
+
+
+
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        xh.open("get", "xml/game.xml", true)
+        xh.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+        xh.send()
+
+        xh.onload = function () {
+            console.log(xh.responseXML);
+            var result = xh.responseXML.documentElement;
+            console.log(result);
+            var tagLength = result.getElementsByTagName('role').length;
+            console.log('tagLength:' + tagLength);
+            var resultText = "";
+            for (var i = 0; i < tagLength; i++) {
+
+                var xSel = result.getElementsByTagName('role')[i];
+
+                for (var j = 0; j < 2; j++) {
+                    var r1 = xSel.childNodes[j].nextElementSibling;
+                    var text1 = r1.textContent
+                    resultText += text1 + ' ';
+                }
+                resultText += '<br/>';
+            }
+            console.log(resultText);
+            document.getElementById('result1').innerHTML = resultText
+
+        }
+
+    </script>
+</body>
+
+</html>

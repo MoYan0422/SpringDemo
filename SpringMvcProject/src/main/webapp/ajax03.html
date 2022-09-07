@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax03</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        xh.open("post", "profiles", true)
+        xh.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+        xh.send("userName=mickey&userAddress=UK&userPhone=322-455-8645")
+
+        xh.onload = function () {
+            console.log(xh.status);
+            console.log(xh.responseText);
+        }
+
+    </script>
+</body>
+
+</html>

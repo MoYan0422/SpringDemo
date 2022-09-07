@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax02</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        xh.open("get", "http://localhost:8080/SpringMvcProject/profiles2/1002", true)
+        xh.send()
+
+	xh.onload = function(){
+        	console.log(xh.responseText);
+        }
+
+    </script>
+</body>
+
+</html>

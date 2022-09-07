@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ajax04</title>
+</head>
+
+<body>
+    ajax04
+    <br>
+    <div id="result1"></div>
+
+
+
+
+    <script type="text/javascript">
+        var xh = new XMLHttpRequest();
+        console.log("readyState1:" + xh.readyState);
+        xh.open("get", "jsoncreate3.controller", true)
+        console.log("readyState2:" + xh.readyState);
+        xh.send()
+        console.log("readyState3:" + xh.readyState);
+
+        xh.onload = function () {
+            console.log("readyState4:" + xh.readyState);
+            console.log(xh.responseText);
+            var data = JSON.parse(xh.responseText);
+            var resultText = "";
+            for (var i = 0; i < data.length; i++) {
+                resultText += data[i].houseId + ' ' + data[i].houseName + '<br/>';
+            }
+            console.log(resultText);
+            document.getElementById('result1').innerHTML = resultText;
+
+        }
+        console.log("readyState5:" + xh.readyState);
+
+    </script>
+</body>
+
+</html>
