@@ -16,6 +16,15 @@
 		password="P@ssw0rd!"
 		driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver"
 		url="jdbc:sqlserver://localhost:1433;databaseName=LeonPower" />
+		
+	<Resource 
+	    name="connectMySqlJdbc/SystemService"
+		type="javax.sql.DataSource" 
+		auth="Container" 
+		username="sa"
+		password="P@ssw0rd!"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/LeonPower?serverTimezone=UTC" />
 		<!--url="jdbc:sqlserver://localhost:1433;databaseName=ProjectTwo" /> -->
     <!-- Default set of monitored resources. If one of these changes, the -->
 	<!-- web application will be reloaded. -->

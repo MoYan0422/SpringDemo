@@ -48,3 +48,13 @@ insert into Profiles(name ,address,phone)values('erir','taichung','04-2658-8874'
 insert into Profiles(name ,address,phone)values('larry','kaohsiung','07-742-8824');
 
 select * from Profiles
+
+create table users(
+id int primary key not null  identity(1001,1),
+userName nvarchar(50) not null
+)
+
+insert into users(userName) values('maverick');
+insert into users(userName) values('goose');
+
+select * from users

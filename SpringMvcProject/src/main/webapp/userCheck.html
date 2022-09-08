@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<table>
+		<tr>
+			<td>Account: <input type="text" id="userAccount" name="userAccount"> </td>
+			<td id="result"></td>
+		</tr>
+	</table>
+	<button id="send">Send</button>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		$(function () {
+			$('#send').click(function () {
+				var userAccount = $('#userAccount').val();
+				console.log('userAccount: ' + userAccount);
+
+				if ($.trim(userAccount) == '') {
+					alert('userName is empty')
+					return;
+				}
+
+				var params = { "userName": '' + userAccount };
+
+				$.ajax({
+					type: 'post',
+					url: 'userscheck.controller',
+					contentType: 'application/json',
+					data: JSON.stringify(params),
+					success: function (data) {
+						console.log(data)
+						if (data == 'Y') {
+							$('#result').html('account is used')
+						} else {
+							$('#result').html('account is not used')
+						}
+					},
+					error: function (e) {
+						console.log(e)
+					}
+				});
+			});
+		});
+	</script>
+
+
+</body>
+
+</html>

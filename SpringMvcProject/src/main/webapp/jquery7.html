@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <div id="result">
+        <h2>Show me the result</h2>
+    </div>
+    <button id="send">Send</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $('#send').click(function () {
+                // alert('以按下')
+                $.ajax({
+                    url: 'jqueryPage01.jsp',
+                    success: function (data) {
+                        $('#result').html(data);
+                    },
+                    complete: function (data) {
+                        $("#send").prop('disabled', true).text('Refresh')
+                    }
+                });
+
+            })
+        })
+    </script>
+</body>
+
+</html>

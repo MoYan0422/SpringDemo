@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+
+</head>
+
+<body>
+    <div id="result"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $.getJSON('json/profiles02.json', function (data) {
+                console.log(data);
+                var resultText = '';
+                for (var i = 0; i < data.length; i++) {
+                    resultText += + '<br>';
+                }
+                console.log(resultText);
+                $('#result').html(resultText);
+
+            });
+        })
+    </script>
+</body>
+
+</html>
